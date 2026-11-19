@@ -20,7 +20,5 @@ class Client
 
 	std::unique_ptr<sf::TcpSocket> socket;
 
-public:
-
 	
 };

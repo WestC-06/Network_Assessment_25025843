@@ -9,7 +9,7 @@ void Client::connect()
 
 	if (socket->connect(*sf::IpAddress::fromString("127.0.01.1"), 53000) == sf::Socket::Status::Done)
 	{
-		std::cout << "You're connected" << std:endl;
+		std::cout << "You're connected" << std::endl;
 		connected = true;
 	}
 
@@ -17,4 +17,14 @@ void Client::connect()
 	{
 		std::cout << "failed to connect to 127.0.0.1::53000" << std::endl;
 	}
+}
+
+void Client::input()
+{
+
+}
+
+void Client::run()
+{
+
 }

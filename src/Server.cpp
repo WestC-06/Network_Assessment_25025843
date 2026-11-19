@@ -17,15 +17,15 @@ void Server::run()
 {
 	while (running)
 	{
-		sf::TcpSocket& c_sock = *connection.emplace_back(std::make_unique<sf::TcpSocket>());
+		sf::TcpSocket& c_sock = *connections.emplace_back(std::make_unique<sf::TcpSocket>());
 
 		if (listener->accept(c_sock) != sf::Socket::Status::Done)
 		{
-			connection.pop_back();
+			connections.pop_back();
 			std::cout << "Connection failed on server side" << std::endl;
 			continue;
 		}
 
-		std::cout << "Client Connected" << decltype.getRemotePort() << std::endl;
+		std::cout << "Client Connected" << c_sock.getRemotePort() << std::endl;
 	}
 }
