@@ -3,10 +3,12 @@
 
 #include <SFML/Graphics.hpp>
 #include "Board.h"
+#include "Server.h"
+#include "Client.h"
 
 class Game
 {
- public:
+public:
 	Game(sf::RenderWindow& window);
 	~Game();
 	bool init();
@@ -18,9 +20,26 @@ class Game
 	void keyReleased(const sf::Event::KeyReleased* event);
 	void mouseMoved(const sf::Event::MouseMoved* event);
 
- private:
+	std::unique_ptr<::Server> server;
+	std::unique_ptr<::Client> client;
+
+	enum State
+	{
+		MENU,
+		GAME,
+	};
+	State game_state;
+
+
+private:
+	
 	sf::RenderWindow& window;
+	
+	sf::Font OpenSans;
+	sf::Text Host { OpenSans };
+	sf::Text Join { OpenSans };
 
 	std::shared_ptr<Board> board;
+
 };
 
