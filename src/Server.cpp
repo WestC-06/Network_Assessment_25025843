@@ -13,6 +13,11 @@ void Server::init()
 	}
 }
 
+void Server::input()
+{
+
+}
+
 void Server::run()
 {
 	while (running)

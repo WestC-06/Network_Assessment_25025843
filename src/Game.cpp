@@ -35,7 +35,6 @@ bool Game::init()
     Join.setFillColor(sf::Color::White);
     Join.setPosition({1000.0f, 480.0f});
 
-
     return true;
 }
 
